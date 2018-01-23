@@ -3,7 +3,7 @@ import * as path from 'path';
 import * as bodyParser from 'body-parser';
 import * as logger from 'morgan';
 
-import * as routeConfig from './api/routeConfig';
+import RouteConfig from './api/routeConfig';
 
 //Creates and configures Express app
 class App {
@@ -27,13 +27,13 @@ class App {
 
     //configure API endpoints
     private routes(): void {
-        let router = express.Router();
+        //let router = express.Router();
         //default route
-        router.get('/', (req, res, next)=> {
-            res.json({message: "Hello World!!"});
+        this.app.get('/', (req, res, next)=> {
+            res.json({message: "The valid endpoints are /excel/apiName ex: question"});
         })
 
-        this.app.use('/excel', routeConfig);
+        this.app.use('/excel', RouteConfig);
     }
 }
 

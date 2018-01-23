@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
-const routeConfig = require("./api/routeConfig");
+const routeConfig_1 = require("./api/routeConfig");
 //Creates and configures Express app
 class App {
     //Runs configration on express instance
@@ -20,12 +20,12 @@ class App {
     }
     //configure API endpoints
     routes() {
-        let router = express.Router();
+        //let router = express.Router();
         //default route
-        router.get('/', (req, res, next) => {
-            res.json({ message: "Hello World!!" });
+        this.app.get('/', (req, res, next) => {
+            res.json({ message: "The valid endpoints are /excel/apiName ex: question" });
         });
-        this.app.use('/excel', routeConfig);
+        this.app.use('/excel', routeConfig_1.default);
     }
 }
 exports.default = new App().app;
