@@ -1,4 +1,5 @@
 import {Router, Request, Response, NextFunction} from 'express';
+import QuestionController from './controller';
 
 export class QuestionRoute {
     router: Router;
@@ -9,9 +10,8 @@ export class QuestionRoute {
     }
 
     init(){
-        this.router.get('/', (req: Request, res: Response) => {
-            res.send("Question returned..");
-        })
+        this.router.get('/', QuestionController.getQuestion);
+        this.router.post('/', QuestionController.setQuestion);
     }
 
 }
