@@ -1,4 +1,5 @@
 import {Router, Request, Response, NextFunction} from 'express';
+import {StudentResponseController} from './controller';
 
 export class StudentResponseRoute {
     router: Router;
@@ -9,9 +10,8 @@ export class StudentResponseRoute {
     }
 
     init(){
-        this.router.get('/', (req: Request, res: Response) => {
-            res.send("Student Response returned..");
-        })
+        this.router.get('/:id', StudentResponseController.getStudentResponse);
+        this.router.post('/', StudentResponseController.setStudentResponse);
     }
 
 }

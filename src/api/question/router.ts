@@ -10,7 +10,7 @@ export class QuestionRoute {
     }
 
     init(){
-        this.router.get('/', QuestionController.getQuestion);
+        this.router.get('/:id', QuestionController.getQuestion);
         this.router.post('/', QuestionController.setQuestion);
     }
 

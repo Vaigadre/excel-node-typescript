@@ -9,17 +9,17 @@ class QuestionController {
      * @param {*} next
      */
     static getQuestion(req, res) {
-        question_1.Question.find({}).then((que) => {
+        question_1.Question.find({ _id: req.params.id }, { "__v": 0 }).then((que) => {
             res.json(que);
         });
     }
     ;
     static setQuestion(req, res) {
-        console.log(req.body);
+        // console.log(req.body);
         question_1.Question.create(req.body).then((que) => {
             //console.log(res.body);
             res.status(201);
-            console.log("Question is added: " + que);
+            console.log("Question is added. ");
         }).catch((err) => {
             res.json(err);
         });

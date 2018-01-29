@@ -1,4 +1,6 @@
 import {Router, Request, Response, NextFunction} from 'express';
+import {AnswerController} from './controller';
+
 
 export class AnswerRoute {
     router: Router;
@@ -9,9 +11,8 @@ export class AnswerRoute {
     }
 
     init(){
-        this.router.get('/', (req: Request, res: Response) => {
-            res.send("Answers returned..");
-        })
+        this.router.get('/:id', AnswerController.getAnswer);
+        this.router.post('/', AnswerController.setAnswer);
     }
 
 }

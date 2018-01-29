@@ -8,7 +8,7 @@ class QuestionRoute {
         this.init();
     }
     init() {
-        this.router.get('/', controller_1.default.getQuestion);
+        this.router.get('/:id', controller_1.default.getQuestion);
         this.router.post('/', controller_1.default.setQuestion);
     }
 }

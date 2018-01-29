@@ -12,17 +12,17 @@ export default class QuestionController {
      */
 
     public static getQuestion (req:Request, res:Response) {
-        Question.find({}).then((que) =>{
+        Question.find({_id:req.params.id}, {"__v":0}).then((que) =>{
             res.json(que);
         })
     };
     
     public static setQuestion (req:Request, res:Response) {
-        console.log(req.body);
+       // console.log(req.body);
         Question.create(req.body).then( (que) => {
             //console.log(res.body);
             res.status(201);
-            console.log("Question is added: " + que);
+            console.log("Question is added. ");
         }).catch((err) => {
             res.json(err);
         })
